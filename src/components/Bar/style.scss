@@ -1,0 +1,22 @@
+.bar-container {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  font-size: 22px;
+  text-transform: uppercase;
+  .top-face {
+    width: 212px;
+    height: 40px;
+    margin: 0 auto;
+    transform: perspective(400px) rotateX(85deg);
+  }
+  .front-face {
+    width: 220px;
+    height: 40px;
+    margin: 0 auto;
+    padding-top: 7px;
+    transform: perspective(400px) rotateX(-15deg);
+    position: relative;
+    top: -18px;
+  }
+}
