@@ -45,7 +45,7 @@ class Introduce extends Component {
             landscape={false}
           >
             <Slide 
-              media={<img src="https://i.imgur.com/JSqg9eC.jpg" className="img-avatar"/>}
+              media={<img src="" className="img-avatar"/>}
               mediaBackgroundStyle={{height: 200, backgroundColor: 'transparent'}}
               mediaStyle={{marginTop: 15}}
               contentStyle={slideRootStyle}
@@ -83,6 +83,48 @@ class Introduce extends Component {
             />
           </Carousel>
         </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-bg" style="background-image: url(https://placeimg.com/801/801/nature)"></div>
+            <div class="tl-year">
+                <p>2010</p>
+            </div>
+            <div class="tl-content">
+                <h1>Quốc Học - Huế</h1>
+                <p>Tốt nghiệp từ trường THCS Nguyễn Tri Phương, sau đó trúng tuyển vào trường THPT chuyên Quốc Học - Huế, chọn lớp chuyên Lý, 2 năm đạt giải 3 thi HSG Vật lý cấp Quốc gia và nhiều thành tích khác.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-bg" style="background-image: url(https://placeimg.com/802/802/nature)"></div>
+            <div class="tl-year">
+                <p>2013</p>
+            </div>
+            <div class="tl-content">
+                <h1>Trở thành tân sinh viên</h1>
+                <p>Sau khi nhập học vào ĐH Bách Khoa HCM khoảng 2 tuần thì rút hồ sơ học bạ và tham gia vào lớp chuẩn bị (classe préparatoire) của trường <dfn title="Institut National des Sciences Appliquées">INSA</dfn> Centre Val de Loire trong vòng 2 năm.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-bg" style="background-image: url(https://placeimg.com/803/803/nature)"></div>
+            <div class="tl-year">
+                <p>2015</p>
+            </div>
+            <div class="tl-content">
+                <h1>Đặt chân lên đất Pháp</h1>
+                <p>Trải qua 2 năm học chương trình dự bị, tiếp tục trở thành sinh viên năm 3 học tập và sinh sống tại thành phố Blois - một thành phố cổ kính, yên bình với những tòa lâu đài tráng lệ và một chút gì đó rất giống nơi tôi sinh ra - Huế.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-bg" style="background-image: url(https://placeimg.com/800/800/nature)"></div>
+            <div class="tl-year">
+                <p>2017</p>
+            </div>
+            <div class="tl-content">
+                <h1>Sắp tốt nghiệp</h1>
+                <p>Được sống và học tập tại Pháp là một cơ hội, cơ hội để trải nghiệm, để đi đây đó mở mang tâm trí và rèn luyện tính tự lập. Và trong năm trước đó tôi đã phát hiện ra niềm đam mê về Web của mình, đây chính là một cơ hội và thách thức cho năm cuối đời sinh viên và tương lai sau này.</p>
+            </div>
+          </div>
+        </div>        
       </section>
     );
   }
