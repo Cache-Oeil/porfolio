@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Header from '../Header';
 import Introduce from '../Introduce';
+import Skill from '../Skill';
 import Footer from '../Footer';
 import Slide from '../Slide';
 
@@ -14,7 +16,13 @@ class Screens extends Component {
       mobile: false
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    
+  }
+
   render() {
+    console.log(this.props.location)
     return (
       <div className="site-container">
         <Slide 
@@ -27,7 +35,13 @@ class Screens extends Component {
           landscape
         />
         <Header />
-        <Introduce />
+        <Switch>
+          <Route path="/introduce" component={Introduce} />
+          <Route path="/skill" component={Skill} />
+        </Switch>
+        {/*<Route path="" component={} />
+        <Route path="" component={} />
+        <Route path="" component={} />} */}
         <Footer />
       </div>
     );
