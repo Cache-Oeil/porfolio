@@ -1,0 +1,22 @@
+{
+  "header.home": "Home",
+  "header.introduce": "Introduction",
+  "header.skill": "Skill",
+  "header.evaluate": "Evaluation",
+  "header.product": "Production",
+  "header.contact": "Contact",
+
+  "introduce.carousel.career": "Web Developper",
+  "introduce.carousel.resume": "Final-year student at INSA Centre Val de Loire, France",
+  "introduce.carousel.introduction": "My name is Bao, currently a senior student at the National Institute of Applied Sciences in Val de Loire, France. Although it's been known for quite some time, but until the end of last year, an event came to fruition in the Web. Front-end developement is an immediate goal for the full-stacks of developers. CiOne is the place to help you re-organize your knowledge and create a supportive community.",
+
+  "footer.support": "Support",
+  "footer.support.content": "Please cooperate with me if you are interested, your satisfaction is my motivation.",
+  "footer.send_message": "Send Message",
+  "footer.send_message.button": "Send",
+  "footer.contact": "Contact",
+  "footer.contact.call": "Call me",
+  "footer.contact.telephone": "(+33) 7 51 14 83 30",
+  "footer.contact.address": "2 Avenuedu Docteur Jean Laigret, Blois, France.",
+  "footer.contact.email": "baochow95@gmail.com"
+}

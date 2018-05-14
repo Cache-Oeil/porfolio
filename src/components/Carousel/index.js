@@ -166,7 +166,7 @@ export default class AutoRotatingCarousel extends Component {
         <div style={{...style.content, ...this.props.contentStyle}}
           onClick={evt => evt.stopPropagation() || evt.preventDefault()}>
           <Paper
-            zDepth={this.props.mobile ? 0 : 1}
+            zDepth={0}
             style={{...style.carouselWrapper, ...this.props.carouselWrapperStyle}}>
             <Carousel
               autoplay={this.props.open && this.props.autoplay}
@@ -178,8 +178,8 @@ export default class AutoRotatingCarousel extends Component {
               slideStyle={style.slide}
             >
               {this.props.children.map((c, i) => React.cloneElement(c, {
-                mobile: this.props.mobile,
-                landscape: this.props.landscape,
+                mobile: this.props.mobile ? this.props.mobile : null,
+                landscape: this.props.landscape ? this.props.landscape : null,
                 key: i
               }))}
             </Carousel>

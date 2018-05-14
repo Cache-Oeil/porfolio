@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { blue500, blue700 } from 'material-ui/colors'
+import { blue500, blue700 } from 'material-ui/styles/colors'
 
 const styles = {
   mobile: {
@@ -106,7 +106,8 @@ const styles = {
       textAlign: 'center',
       maxWidth: '80%',
       margin: '0 auto',
-      paddingTop: 32
+      paddingTop: 32,
+      paddingBottom: 10
     },
     title: {
       fontSize: '24px',
