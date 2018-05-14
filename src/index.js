@@ -7,13 +7,13 @@ import { Provider } from 'react-redux';
 
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 
-import { getTranslation } from 'redux-i18n';
-import i18n from "redux-i18n/immutable";
+import I18n from "redux-i18n";
 
 import Screens from './Screens';
 
 import reducers from './reducers';
 
+import { locale } from '../assets/translations';
 import './global.scss';
 
 const store = createStore(reducers)
@@ -21,9 +21,11 @@ const store = createStore(reducers)
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>
-      <HashRouter>
-        <Screens />
-      </HashRouter>
+      <I18n translations={locale()} initialLang="fr">
+        <HashRouter>
+          <Screens />
+        </HashRouter>
+      </I18n>
     </MuiThemeProvider>
   </Provider>
   , document.getElementById('root')

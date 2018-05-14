@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Bar from '../../components/Bar';
 import Chart from '../../components/Chart';
 import './style.scss';
@@ -17,8 +18,8 @@ class Skill extends Component {
             topFaceStyle={{ backgroundColor: '#dcdbdc', color: '#3498db'}} 
             frontFaceStyle={{ backgroundColor: '#3498db', color:'#dcdbdc'}}
           />
-          { this.props.skills.map(({type, chartProperties: {percentage, growColor}}) => (
-            <div className="skill-chart">
+          { this.props.skills.map(({type, chartProperties: {percentage, growColor}}, index) => (
+            <div key={index} className="skill-chart">
               <h3>{type}</h3>
               <Chart 
                 percentage={percentage}
@@ -30,6 +31,10 @@ class Skill extends Component {
       </section>
     );
   }
+}
+
+Skill.contextTypes = {
+  t: PropTypes.func
 }
 
 export default Skill;
