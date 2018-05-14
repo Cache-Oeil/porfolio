@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Slide from '../Slide';
-import Bar from '../Bar';
-import Carousel from '../Carousel';
+import PropTypes from 'prop-types';
+import Slide from '../../components/Slide';
+import Bar from '../../components/Bar';
+import Carousel from '../../components/Carousel';
 import FalconLogo from '../../../assets/img/falcon-logo-small.png';
 import './style.scss';
 
@@ -29,9 +30,11 @@ class Introduce extends Component {
     this.state = {  };
   }
   render() {
+    const { timeLineStorys } = this.props;
+
     return (
-      <section className="section">
-        <div className="section-container">
+      <div className="introduce">
+        <div className="introduce-container">
           <Bar title="Gioi thieu" topFaceStyle={{ backgroundColor: '#67605f', color: '#dedcdb'}} frontFaceStyle={{ backgroundColor: '#dedcdb', color:'#67605f'}}/>
           <Carousel 
             autoplay
@@ -84,50 +87,26 @@ class Introduce extends Component {
           </Carousel>
         </div>
         <div className="timeline">
-          <div className="tl-item">
-            <div className="tl-bg" style={{backgroundImage: 'url(https://placeimg.com/801/801/nature)'}}></div>
+          { timeLineStorys.map((story, index) => (
+          <div key={index} className="tl-item">
+            <div className="tl-bg" style={{backgroundImage: story.background}}></div>
             <div className="tl-year">
-                <p>2010</p>
+                <p>{story.year}</p>
             </div>
             <div className="tl-content">
-                <h1>Quốc Học - Huế</h1>
-                <p>Tốt nghiệp từ trường THCS Nguyễn Tri Phương, sau đó trúng tuyển vào trường THPT chuyên Quốc Học - Huế, chọn lớp chuyên Lý, 2 năm đạt giải 3 thi HSG Vật lý cấp Quốc gia và nhiều thành tích khác.</p>
+                <h1>{story.content.title}</h1>
+                <p>{story.content.story}</p>
             </div>
           </div>
-          <div className="tl-item">
-            <div className="tl-bg" style={{backgroundImage: 'url(https://placeimg.com/802/802/nature)'}}></div>
-            <div className="tl-year">
-                <p>2013</p>
-            </div>
-            <div className="tl-content">
-                <h1>Trở thành tân sinh viên</h1>
-                <p>Sau khi nhập học vào ĐH Bách Khoa HCM khoảng 2 tuần thì rút hồ sơ học bạ và tham gia vào lớp chuẩn bị (classe préparatoire) của trường <dfn title="Institut National des Sciences Appliquées">INSA</dfn> Centre Val de Loire trong vòng 2 năm.</p>
-            </div>
-          </div>
-          <div className="tl-item">
-            <div className="tl-bg" style={{backgroundImage: 'url(https://placeimg.com/803/803/nature)'}}></div>
-            <div className="tl-year">
-                <p>2015</p>
-            </div>
-            <div className="tl-content">
-                <h1>Đặt chân lên đất Pháp</h1>
-                <p>Trải qua 2 năm học chương trình dự bị, tiếp tục trở thành sinh viên năm 3 học tập và sinh sống tại thành phố Blois - một thành phố cổ kính, yên bình với những tòa lâu đài tráng lệ và một chút gì đó rất giống nơi tôi sinh ra - Huế.</p>
-            </div>
-          </div>
-          <div className="tl-item">
-            <div className="tl-bg" style={{backgroundImage: 'url(https://placeimg.com/800/800/nature)'}}></div>
-            <div className="tl-year">
-                <p>2017</p>
-            </div>
-            <div className="tl-content">
-                <h1>Sắp tốt nghiệp</h1>
-                <p>Được sống và học tập tại Pháp là một cơ hội, cơ hội để trải nghiệm, để đi đây đó mở mang tâm trí và rèn luyện tính tự lập. Và trong năm trước đó tôi đã phát hiện ra niềm đam mê về Web của mình, đây chính là một cơ hội và thách thức cho năm cuối đời sinh viên và tương lai sau này.</p>
-            </div>
-          </div>
+          ))}
         </div>        
-      </section>
+      </div>
     );
   }
+}
+
+Introduce.propTypes = {
+  timeLineStorys: PropTypes.array
 }
 
 export default Introduce;

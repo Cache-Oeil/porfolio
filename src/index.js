@@ -10,7 +10,7 @@ import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { getTranslation } from 'redux-i18n';
 import i18n from "redux-i18n/immutable";
 
-import Screens from './components/Screens';
+import Screens from './Screens';
 
 import reducers from './reducers';
 

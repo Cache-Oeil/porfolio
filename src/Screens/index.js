@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Header from '../Header';
-import Introduce from '../Introduce';
-import Skill from '../Skill';
-import Footer from '../Footer';
-import Slide from '../Slide';
+import Header from '../components/Header';
+import Introduce from '../containers/Introduce';
+import Skill from '../containers/Skill';
+import Footer from '../components/Footer';
+import Slide from '../components/Slide';
 
 import { red400, red600 } from 'material-ui/styles/colors';
 import './style.scss';
@@ -22,7 +22,7 @@ class Screens extends Component {
   }
 
   render() {
-    console.log(this.props.location)
+
     return (
       <div className="site-container">
         <Slide 
