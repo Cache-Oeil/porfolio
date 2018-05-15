@@ -29,6 +29,11 @@ class Introduce extends Component {
     super(props);
     this.state = {  };
   }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.location)
+  }
+
   render() {
     return (
       <section className="section">
