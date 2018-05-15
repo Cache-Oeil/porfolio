@@ -1,0 +1,22 @@
+{
+  "header.home": "Accueil",
+  "header.introduce": "Introduction",
+  "header.skill": "Compétence",
+  "header.evaluate": "Évaluation",
+  "header.product": "Production",
+  "header.contact": "Contact",
+
+  "introduce.carousel.career": "Développeur Web",
+  "introduce.carousel.resume": "Etudiant en 5eme année à l'INSA Centre Val de Loire, France.",
+  "introduce.carousel.introduction": "Je m'appelle Bao, actuellement étudiant à l'Institut national des sciences appliquées du Val de Loire. Bien que ce soit connu depuis un certain temps, mais jusqu'à la fin de l'année dernière, un événement s'est concrétisé dans le Web. Le développement en front-end est un objectif immédiat pour l'ensemble des développeurs. CiOne est l'endroit pour vous aider à réorganiser vos connaissances et créer une communauté de soutien.",
+
+  "footer.support": "Support",
+  "footer.support.content": "S'il vous plaît coopérer avec moi si vous êtes intéressé, votre satisfaction est ma motivation.",
+  "footer.send_message": "Envoyez Message",
+  "footer.send_message.button": "Envoyer",
+  "footer.contact": "Contactez-moi",
+  "footer.contact.call": "Appelez-moi",
+  "footer.contact.telephone": "(+33) 7 51 14 83 30",
+  "footer.contact.address": "2 Avenuedu Docteur Jean Laigret, Blois, France.",
+  "footer.contact.email": "baochow95@gmail.com"
+}

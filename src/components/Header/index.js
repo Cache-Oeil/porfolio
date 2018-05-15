@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
-const Header = (props) => {
+const Header = (props, context) => {
   const {
     className
   } = props;
@@ -13,17 +14,21 @@ const Header = (props) => {
           <img src="https://i.imgur.com/S4yCEbH.png" alt="logo-cione" />
       </div>
       <ul id="menuLeft" className="menu menu-left">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/introduce">Giới thiệu</Link></li>
-          <li><Link to="/skill">Kỹ năng</Link></li>
+          <li><Link to="/">{context.t('header.home')}</Link></li>
+          <li><Link to="/introduce">{context.t('header.introduce')}</Link></li>
+          <li><Link to="/skill">{context.t('header.skill')}</Link></li>
       </ul>
       <ul id="menuRight" className="menu menu-right">
-          <li><Link to="/evaluate">Đánh giá</Link></li>
-          <li><Link to="/product">Sản phẩm</Link></li>
-          <li><a href="#contact">Liên hệ</a></li>
+          <li><Link to="/evaluate">{context.t('header.evaluate')}</Link></li>
+          <li><Link to="/product">{context.t('header.product')}</Link></li>
+          <li><a href="#contact">{context.t('header.contact')}</a></li>
       </ul>
     </div>
   )
+}
+
+Header.contextTypes= {
+  t: PropTypes.func
 }
 
 export default Header;
