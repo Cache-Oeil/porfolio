@@ -24,6 +24,10 @@ const selectFieldRootStyle = {
   zIndex: 1001
 }
 
+const ConnectedSwitch = connect(state => ({
+  location: state.routing.location
+}))(Switch)
+
 class Screens extends Component {
   constructor(props) {
     super(props);
@@ -64,10 +68,10 @@ class Screens extends Component {
           landscape
         />
         <Header />
-        <Switch>
+        <ConnectedSwitch>
           <Route path="/introduce" component={Introduce} />
           <Route path="/skill" component={Skill} />
-        </Switch>
+        </ConnectedSwitch>
         <Footer />
       </div>
     );
@@ -76,13 +80,11 @@ class Screens extends Component {
 
 const mapStateToProps = (state) => ({
   location: state.location,
-  lang: state.i18n.lang,
-
+  lang: state.i18nState.lang,
 });
 
 const mapDispatchToProps = dispatch => ({
   setLang: (lang) => dispatch(setLanguage(lang))
 })
 
-export default connect(mapStateToProps)(Screens);
-// export default Screens;
+export default connect(mapStateToProps, mapDispatchToProps)(Screens);

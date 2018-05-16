@@ -10,6 +10,7 @@ module.exports = {
     path: path.resolve('./', 'dist')
   },
   devServer: {
+    historyApiFallback: true,
     contentBase: './dist'
   },
   plugins: [

@@ -20,17 +20,9 @@ import reducers from './reducers';
 import { locale } from '../assets/translations';
 import './global.scss';
 
-const initialState = {
-  routing: {
-    location: {
-      state: {}
-    }
-  }
-}
-
 const history = createBrowserHistory();
 const middleware = routerMiddleware(history);
-const store = createStore(reducers, initialState, applyMiddleware(thunk, middleware))
+const store = createStore(reducers, applyMiddleware(thunk, middleware))
 store.dispatch(setTranslations(locale()))
 
 ReactDOM.render(
