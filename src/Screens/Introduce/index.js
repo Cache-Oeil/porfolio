@@ -29,14 +29,17 @@ class Introduce extends Component {
     super(props);
     this.state = {  };
   }
-  render() {
-    const { timeLineStorys } = this.props;
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.location)
+  }
+
+  render() {
     return (
       <div className="introduce">
         <div className="introduce-container">
-          <Bar title="Gioi thieu" topFaceStyle={{ backgroundColor: '#67605f', color: '#dedcdb'}} frontFaceStyle={{ backgroundColor: '#dedcdb', color:'#67605f'}}/>
-          <Carousel 
+          <Bar title={this.context.t('header.introduce')} topFaceStyle={{ backgroundColor: '#67605f', color: '#dedcdb'}} frontFaceStyle={{ backgroundColor: '#dedcdb', color:'#67605f'}}/>
+          <Carousel
             autoplay
             open
             style={carouselRootStyle}
@@ -47,15 +50,15 @@ class Introduce extends Component {
             mobile={this.state.mobile}
             landscape={false}
           >
-            <Slide 
+            <Slide
               media={<img src="https://i.imgur.com/JSqg9eC.jpg" className="img-avatar"/>}
               mediaBackgroundStyle={{height: 200, backgroundColor: 'transparent'}}
               mediaStyle={{marginTop: 15}}
               contentStyle={slideRootStyle}
-              title="Bao Chou"
-              subtitle="Web Developper"
+              title="Bao CHAU"
+              subtitle={this.context.t('introduce.carousel.career')}
             >
-              <p>Etudiant en 5eme année à l'INSA Centre Val de Loire, France.</p>
+              <p>{this.context.t('introduce.carousel.resume')}</p>
               <div className="social-media">
                   <ul>
                       <li><a href="https://www.facebook.com/yagami.shuukoku"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -72,11 +75,7 @@ class Introduce extends Component {
               mediaStyle={{marginTop: 15}}
               contentStyle={slideRootStyle}
             >
-              <p>Mình là Bảo, hiện đang là sinh viên năm cuối của Viện Khoa Học Ứng Dụng Quốc Gia tại Val de Loire, Pháp. 
-                Mặc dù biết đến lập trình cũng khá lâu, nhưng mãi tới tận cuối năm ngoái, một sự kiện xảy đến cuốn mình vào trong niềm đam mê phát triển Web. 
-                Front-end developement là mục tiêu trước mắt mình đang chinh phục để hướng tới một Full-Stack Developer đầy bản lĩnh. 
-                Và CiOne chính là nơi đã giúp mình hệ thống lại kiến thức và tạo một cộng đồng hỗ trợ nhiệt tình.
-              </p>
+              <p>{this.context.t('introduce.carousel.introduction')}</p>
             </Slide>
             <Slide
               media={<img src={FalconLogo} />}
@@ -87,7 +86,7 @@ class Introduce extends Component {
           </Carousel>
         </div>
         <div className="timeline">
-          { timeLineStorys.map((story, index) => (
+          { this.props.timeLineStorys.map((story, index) => (
           <div key={index} className="tl-item">
             <div className="tl-bg" style={{backgroundImage: story.background}}></div>
             <div className="tl-year">
@@ -99,10 +98,14 @@ class Introduce extends Component {
             </div>
           </div>
           ))}
-        </div>        
+        </div>      
       </div>
     );
   }
+}
+
+Introduce.contextTypes = {
+  t: PropTypes.func
 }
 
 Introduce.propTypes = {

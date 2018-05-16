@@ -8,21 +8,6 @@ const Footer = (props, context) => {
       <div className="footer-container">
         <div className="footer-wrapper">
           <div className="footer-element">
-            <h2 className="footer-title">Our Mission</h2>
-            <p className="lead">Hãy cộng tác với tôi nếu bạn thấy hứng thú, sự hài lòng của bạn là động lực của tôi.</p>
-          </div>
-          <div className="footer-element">
-            <h2 className="footer-title">Send Message</h2>
-            <form className="send-mail-form">
-              <input className="email" placeholder="Your Email Address" type="email" />
-              <textarea cols="30" rows="2" placeholder="Enter here..."></textarea>
-              <button type="submit" className="btn-msn">Send</button>
-            </form>
-          </div>
-          <div className="footer-element">
-            <h2 className="footer-title">Contact me</h2>
-            <p className="contact-info">Call me: (+33) 7 51 14 83 30 <br/>2 Avenuedu Docteur Jean Laigret, Blois, France.</p>
-            <a href="#" className="e-mail">baochow95@gmail.com</a>
             <h2 className="footer-title">{context.t('footer.support')}</h2>
             <p className="lead">{context.t('footer.support.content')}</p>
           </div>

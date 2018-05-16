@@ -21,7 +21,7 @@ const selectFieldRootStyle = {
   boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px',
   borderRadius: '2px',
   backgroundColor: '#fff',
-  zIndex: 1001
+  zIndex: 1401
 }
 
 const ConnectedSwitch = connect(state => ({
