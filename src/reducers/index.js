@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux';
 
 const reducers = combineReducers({
   i18nState,
-  routerReducer
+  routing: routerReducer
 });
 
 export default reducers;

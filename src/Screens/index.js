@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setLanguage } from 'redux-i18n';
 import { Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Introduce from '../containers/Introduce';
@@ -73,10 +74,15 @@ class Screens extends Component {
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   location: state.location,
-//   lang: state.i18n.lang
-// });
+const mapStateToProps = (state) => ({
+  location: state.location,
+  lang: state.i18n.lang,
 
-// export default connect(mapStateToProps)(Screens);
-export default Screens;
+});
+
+const mapDispatchToProps = dispatch => ({
+  setLang: (lang) => dispatch(setLanguage(lang))
+})
+
+export default connect(mapStateToProps)(Screens);
+// export default Screens;
