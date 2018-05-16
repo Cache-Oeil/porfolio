@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { setLanguage } from 'redux-i18n';
 import { Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
-import Introduce from '../containers/Introduce';
-import Skill from '../containers/Skill';
+import Introduce from '../controllers/Introduce';
+import Skill from '../controllers/Skill';
+import Product from '../controllers/Product';
 import Footer from '../components/Footer';
 import Slide from '../components/Slide';
 import SelectField from 'material-ui/SelectField';
@@ -24,7 +25,7 @@ const selectFieldRootStyle = {
   zIndex: 1401
 }
 
-const ConnectedSwitch = connect(state => ({
+export const ConnectedSwitch = connect(state => ({
   location: state.routing.location
 }))(Switch)
 
@@ -71,6 +72,7 @@ class Screens extends Component {
         <ConnectedSwitch>
           <Route path="/introduce" component={Introduce} />
           <Route path="/skill" component={Skill} />
+          <Route path="/product" component={Product} />
         </ConnectedSwitch>
         <Footer />
       </div>
