@@ -29,9 +29,12 @@ class Introduce extends Component {
     super(props);
     this.state = {  };
   }
-  render() {
-    const { timeLineStorys } = this.props;
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.location)
+  }
+
+  render() {
     return (
       <div className="introduce">
         <div className="introduce-container">
@@ -83,7 +86,7 @@ class Introduce extends Component {
           </Carousel>
         </div>
         <div className="timeline">
-          { timeLineStorys.map((story, index) => (
+          { this.props.timeLineStorys.map((story, index) => (
           <div key={index} className="tl-item">
             <div className="tl-bg" style={{backgroundImage: story.background}}></div>
             <div className="tl-year">
@@ -95,7 +98,7 @@ class Introduce extends Component {
             </div>
           </div>
           ))}
-        </div>        
+        </div>      
       </div>
     );
   }

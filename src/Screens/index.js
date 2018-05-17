@@ -4,8 +4,9 @@ import {setLanguage} from "redux-i18n"
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
-import Introduce from '../containers/Introduce';
-import Skill from '../containers/Skill';
+import Introduce from '../controllers/Introduce';
+import Skill from '../controllers/Skill';
+import Product from '../controllers/Product';
 import Footer from '../components/Footer';
 import Slide from '../components/Slide';
 import SelectField from 'material-ui/SelectField';
@@ -22,8 +23,12 @@ const selectFieldRootStyle = {
   boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px',
   borderRadius: '2px',
   backgroundColor: '#fff',
-  zIndex: 1001
+  zIndex: 1401
 }
+
+export const ConnectedSwitch = connect(state => ({
+  location: state.routing.location
+}))(Switch)
 
 class Screens extends Component {
   constructor(props) {
@@ -38,7 +43,7 @@ class Screens extends Component {
     
   }
 
-  onChangeLanguage = (event, index, value) => this.props.setLanguage(value)
+  onChangeLanguage = (e, i, v) => this.props.setLang(v)
 
   render() {
     const { lang, setLanguage } = this.props;
@@ -47,7 +52,7 @@ class Screens extends Component {
       <div className="site-container">
         <SelectField
           autoWidth
-          value={lang}
+          value={this.props.lang}
           onChange={this.onChangeLanguage}
           style={selectFieldRootStyle}
           labelStyle={{paddingLeft: 20}}
@@ -67,30 +72,24 @@ class Screens extends Component {
           landscape
         />
         <Header />
-        <Switch>
+        <ConnectedSwitch>
           <Route path="/introduce" component={Introduce} />
           <Route path="/skill" component={Skill} />
-        </Switch>
+          <Route path="/product" component={Product} />
+        </ConnectedSwitch>
         <Footer />
       </div>
     );
   }
 }
 
-Screens.contextTypes = {
-  t: PropTypes.func
-}
+const mapStateToProps = (state) => ({
+  location: state.location,
+  lang: state.i18nState.lang,
+});
 
-function mapStateToProps({ i18nState }) {
-  return {
-    lang: i18nState.lang
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    setLanguage: (lang) => dispatch(setLanguage(lang))
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  setLang: (lang) => dispatch(setLanguage(lang))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Screens);

@@ -1,0 +1,90 @@
+.product {
+  .product-container {
+    .hex-wrapper {
+      position: relative;
+      max-width: 665px;
+      margin: 0 auto;
+      .hex-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 190px;
+        margin: 0 auto;
+        &.top {
+
+        }
+        &.middle {
+          margin-top: -60px;
+        }
+        &.bottom {
+          margin-top: -60px;
+        }
+        .hex {
+          width: 150px;
+          height: 85px;
+          background: transparent;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: -40px;
+          position: relative;
+          display: block;
+          border-left: 3px solid black;
+          border-right: 3px solid black;
+          border-radius: 8px;
+          transition: .3s;
+          cursor: pointer;
+          outline: none;
+          &:hover {
+            transform: scale(1.1);
+          }
+          .hex-label {
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 12.5px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              width: 50px;
+              height: 50px;
+              &.ampli {
+                width: 60px;
+                height: 60px;
+              }
+            }
+          }
+          .hex-1,
+          .hex-2 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            backface-visibility: hidden;
+            border-left: 3px solid black;
+            border-right: 3px solid black;
+          }
+          .hex-1 {
+            transform: rotate(60deg);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 5px;
+          }
+          .hex-2 {
+            transform: rotate(-60deg);
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}
