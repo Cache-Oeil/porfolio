@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import {setLanguage} from "redux-i18n"
 import { connect } from 'react-redux';
+import { setLanguage } from 'redux-i18n';
 import { Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Introduce from '../controllers/Introduce';
