@@ -88,7 +88,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setLang: (lang) => dispatch(setLanguage(lang))
+  setLang: (lang) => dispatch(setLanguage(lang)),
+  navigate: (path) => dispatch(push(path))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Screens);

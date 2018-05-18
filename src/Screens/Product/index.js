@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import ProductDetail from './Item';
 import './style.scss';
+import ProductItem from './Item';
 
 class Product extends Component {
   constructor(props) {
@@ -18,14 +19,11 @@ class Product extends Component {
 
   render() {
     const { hexagons } = this.state;
-    console.log(this.props.location)
     return (
       <div className="product">
         <div className="product-container">
           <Switch>
-            { this.props.products.map(product => (
-              <Route path={`/product/${product.name}`} component={ProductDetail} />
-            ))}
+            <Route path={this.props.match.url + '/:project'} component={ProductItem}/>
             <Route>
               <div className="hex-wrapper">
                 { Array.from({length: 3}, v => 0).map((v, i) => {
