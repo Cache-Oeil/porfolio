@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin= require('script-ext-html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -7,13 +9,16 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '..', 'dist')
+    path: path.resolve(__dirname, '..', 'dist'),
+    publicPath: '/'
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './dist'
+    contentBase: './dist',
+    publicPath: '/'
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     })
