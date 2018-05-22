@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setLanguage } from 'redux-i18n';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Header from '../components/Header';
 import Introduce from '../controllers/Introduce';
 import Skill from '../controllers/Skill';
 import Product from '../controllers/Product';
 import Footer from '../components/Footer';
 import Slide from '../components/Slide';
+import Hextrix from '../components/Games/Hextrix';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -61,21 +62,22 @@ class Screens extends Component {
           <MenuItem value="en" primaryText="EN" />
           <MenuItem value="vi" primaryText="VI" />
         </SelectField>
-        <Slide 
-          media={<img src='http://www.icons101.com/icon_png/size_256/id_79394/youtube.png' />}
-          mediaBackgroundStyle={{backgroundColor: red400}}
+        <Slide
+          particles={true}
+          mediaBackgroundStyle={{backgroundColor: "#212121"}}
           contentStyle={{backgroundColor: red600, height: 400, width: '100%'}}
-          title='This is a very cool feature'
-          subtitle='Just using this will blow your mind.'
+          textStyle={{padding: 0, height: '100%'}}
           mobile
           landscape
-        />
+        >
+          <Hextrix/>
+        </Slide>
         <Header />
-        <ConnectedSwitch>
+        <Switch>
           <Route path="/introduce" component={Introduce} />
           <Route path="/skill" component={Skill} />
           <Route path="/product" component={Product} />
-        </ConnectedSwitch>
+        </Switch>
         <Footer />
       </div>
     );
@@ -92,4 +94,4 @@ const mapDispatchToProps = dispatch => ({
   navigate: (path) => dispatch(push(path))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Screens);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Screens));

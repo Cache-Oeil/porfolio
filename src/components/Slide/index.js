@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import 'particles.js';
 import { blue500, blue700 } from 'material-ui/styles/colors'
 
 const styles = {
@@ -121,45 +122,117 @@ const styles = {
   }
 }
 
-const Slide = (props) => {
-  const {
-    contentStyle,
-    media,
-    mediaBackgroundStyle,
-    mediaStyle,
-    subtitle,
-    subtitleStyle,
-    textStyle,
-    title,
-    titleStyle,
-    mobile,
-    landscape,
-    children
-  } = props
+const particlesConfig = {
+  "particles": {
+    "number": {
+      "value": 200
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000"
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        }
+      },
+      "modes": {
+        "repulse": {
+          "distance": 400
+        },
+        "push": {
+          "particles_nb": 4
+        }
+      }
+    }
+  }
+}
 
-  const style = mobile ? (landscape ? styles.mobileLandscape : styles.mobile) : styles.desktop
+class Slide extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-  return (
-    <div style={{...style.root, ...contentStyle}}>
-      {media && 
-      <div style={{...style.mediaBackground, ...mediaBackgroundStyle}}>
-        <div style={{...style.media, ...mediaStyle}}>{React.cloneElement(media, {
-          style: {...media.style, maxHeight: '100%'}
-        })}</div>
-      </div>}
-      <div style={{...style.text, ...textStyle}}>
-        {title && 
-        <div style={{...style.title, ...titleStyle}}>
-          {title}
-        </div>}
-        {subtitle && 
-        <p style={{...style.subtitle, ...subtitleStyle}}>
-          {subtitle}
-        </p>}
-        {children}
+  componentDidMount() {
+    if (this.props.particles) {
+      particlesJS('particles', particlesConfig, () => console.log('particles.js has loaded'))
+    }
+  }
+
+  render() {
+    const {
+      contentStyle,
+      media,
+      mediaBackgroundStyle,
+      mediaStyle,
+      subtitle,
+      subtitleStyle,
+      textStyle,
+      title,
+      titleStyle,
+      mobile,
+      landscape,
+      children
+    } = this.props
+
+    const style = mobile ? (landscape ? styles.mobileLandscape : styles.mobile) : styles.desktop
+
+    return (
+      <div style={{...style.root, ...contentStyle}}>
+        <div id="particles" style={{...style.mediaBackground, ...mediaBackgroundStyle}}>
+          {media && 
+          <div style={{...style.media, ...mediaStyle}}>{React.cloneElement(media, {
+            style: {...media.style, maxHeight: '100%'}
+          })}
+          </div>}
+        </div>
+        <div style={{...style.text, ...textStyle}}>
+          {title && 
+          <div style={{...style.title, ...titleStyle}}>
+            {title}
+          </div>}
+          {subtitle && 
+          <p style={{...style.subtitle, ...subtitleStyle}}>
+            {subtitle}
+          </p>}
+          {children}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 Slide.propTypes = {

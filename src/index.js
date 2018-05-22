@@ -20,18 +20,18 @@ import reducers from './reducers';
 import { locale } from '../assets/translations';
 import './global.scss';
 
-const history = createBrowserHistory();
-const middleware = routerMiddleware(history);
-const store = createStore(reducers, applyMiddleware(thunk, middleware))
+// const history = createBrowserHistory();
+// const middleware = routerMiddleware(history);
+const store = createStore(reducers, applyMiddleware(thunk))
 store.dispatch(setTranslations(locale()))
 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>
       <I18n translations={{}} initialLang="fr" useReducer={true}>
-        <ConnectedRouter history={history}>
+        <BrowserRouter>
           <Screens />
-        </ConnectedRouter>
+        </BrowserRouter>
       </I18n>
     </MuiThemeProvider>
   </Provider>
