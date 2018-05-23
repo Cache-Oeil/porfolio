@@ -8,7 +8,7 @@ import Skill from '../controllers/Skill';
 import Product from '../controllers/Product';
 import Footer from '../components/Footer';
 import Slide from '../components/Slide';
-import Hextrix from '../components/Games/Hextrix';
+import AudioPlayer from '../components/AudioPlayer';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -70,7 +70,7 @@ class Screens extends Component {
           mobile
           landscape
         >
-          <Hextrix/>
+          <AudioPlayer/>
         </Slide>
         <Header />
         <Switch>
