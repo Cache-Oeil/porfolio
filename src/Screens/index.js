@@ -8,7 +8,7 @@ import Skill from '../controllers/Skill';
 import Product from '../controllers/Product';
 import Footer from '../components/Footer';
 import Slide from '../components/Slide';
-import AudioPlayer from '../components/AudioPlayer';
+import AudioPlayer from '../controllers/AudioPlayer';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
