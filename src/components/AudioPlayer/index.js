@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import Progress from './Progress';
 import './style.scss';
 
 class AudioPlayer extends Component {
   constructor(props) {
     super(props);
     this.state = {  
-      play: true
+      play: true,
+      selectedTrack: null,
     };
   }
 
@@ -14,11 +16,13 @@ class AudioPlayer extends Component {
   render() {
     return (
       <div className="audio-player">
+
         <input type="checkbox" id="play" checked={this.state.play} />
         <div className="album"></div>
-        <div className="track">
+        {/* <div className="track">
           <div className="progress"></div>
-        </div>
+        </div> */}
+        <Progress currentTime={40}/>
         <div className="title">Instant Crush <span className="artist">- Daft Punk</span></div>
         <div className="throbber"></div>
         <label className="play" for="play" onClick={this.handlePlay}></label>
@@ -34,6 +38,11 @@ class AudioPlayer extends Component {
             <div className="artist">102 songs</div>
           </li>
         </ul>
+        {/* <audio>
+          <source
+            src={this.state.selectedTrack.source}
+          />
+        </audio> */}
       </div>
     );
   }
