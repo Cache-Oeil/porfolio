@@ -7,24 +7,36 @@ class AudioPlayer extends Component {
     super(props);
     this.state = {  
       play: true,
-      selectedTrack: null,
+      selectedTrack: this.props.tracks[0],
     };
   }
 
-  handlePlay = (e) => this.setState({ play: !this.state.play })
+  componentDidMount() {
+    this.audio = document.getElementById('audio');
+    this.audio.play();
+  }
+
+  handlePlay = (e) => {
+    const { play } = this.state;
+
+    if (!play) {
+      this.audio.play();
+    } else {
+      this.audio.pause()
+    }
+    this.setState({ play: !this.state.play })
+  }
   
   render() {
+    const { tracks } = this.props;
+    const { selectedTrack } = this.state;
     return (
       <div className="audio-player">
-
         <input type="checkbox" id="play" checked={this.state.play} />
-        <div className="album"></div>
-        {/* <div className="track">
-          <div className="progress"></div>
-        </div> */}
-        <Progress currentTime={40}/>
-        <div className="title">Instant Crush <span className="artist">- Daft Punk</span></div>
-        <div className="throbber"></div>
+        <div className="album" style={{backgroundImage: `url('${selectedTrack.albumb.artwork}')`}}></div>
+        <Progress playing={this.state.play} currentTime={40} duration={selectedTrack.duration}/>
+        <div className="title">{selectedTrack.title} <span className="artist">- {selectedTrack.artist}</span></div>
+        <div className="throbber"></div>                            
         <label className="play" for="play" onClick={this.handlePlay}></label>
         <div className="controls">
           <div className="control prev"></div>
@@ -38,11 +50,9 @@ class AudioPlayer extends Component {
             <div className="artist">102 songs</div>
           </li>
         </ul>
-        {/* <audio>
-          <source
-            src={this.state.selectedTrack.source}
-          />
-        </audio> */}
+        <audio id="audio" style={{display: 'none'}}>
+          <source src={selectedTrack.source} />
+        </audio>
       </div>
     );
   }
