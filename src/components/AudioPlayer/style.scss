@@ -77,9 +77,8 @@ $colors: (
     color: material-color(white);
     transition: transform 0.3s 0.3s;
     transform: scale(0.7)
-    translate3d(-106%,
-    -8em,
-    0);
+    translate3d(-106%, -8em, 0);
+    margin-top: 6px;
     .artist {
       font-weight: 200;
     }
@@ -89,6 +88,9 @@ $colors: (
     font-size: 0.8em;
     line-height: 2em;
     transition: all 0.5s;
+    &:not(:first-child) {
+      cursor: pointer;
+    }
     .cover {
       height: 2em;
       width: 2em;
@@ -262,7 +264,7 @@ $colors: (
     box-shadow: 0 0 0 300px material-color(grey, 900);
     transition: all 1s;
     background-color: #000;
-    background-size: 200% auto;
+    background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     animation: album-out 0.5s forwards;
