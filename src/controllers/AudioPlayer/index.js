@@ -8,35 +8,14 @@ const tracks = [
   {
     id: 1,
     title: 'MASHUP',
-    artist: "NERDHEAD Vs. Foxxi MisQ Vs. HALCALI Vs. So'Fly Vs. 天上智喜 Vs. CLIFF EDGE Vs. Mai.K",
+    artist: "Various artists",
     albumb: {
       name: null,
       artwork: 'https://i1.sndcdn.com/artworks-000079173282-v6ygm6-t500x500.jpg'
     },
-    source: musicSrc,
+    source: 'https://s3.eu-west-3.amazonaws.com/baochau-music/' +
+    'MASHUP++NERDHEAD+vs.+Foxxi+misQ+vs.+HALCALI+vs.+SoFly+vs.+%E5%A4%A9%E4%B8%8A%E6%99%BA%E5%96%9C+vs.+CLIFF+EDGE+vs.+Mai.K.mp3',
     duration: 275
-  },
-  {
-    id: 2,
-    title: '',
-    artist: '',
-    albumb: {
-      name: '',
-      artwork: ''
-    },
-    source:'',
-    duration: 123
-  },
-  {
-    id: 3,
-    title: '',
-    artist: '',
-    albumb: {
-      name: '',
-      artwork: ''
-    },
-    source:'',
-    duration: 123
   }
 ]
 const mapStateToProps = state => ({
