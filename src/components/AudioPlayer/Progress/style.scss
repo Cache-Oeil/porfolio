@@ -51,19 +51,9 @@
 }
 
 .linear-progress-enter {
-  opacity: 0.01;
-  display: flex;
-  justify-content: center;
-  &.linear-progress-enter-active {
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-  }
+  display: none;
 }
 
 .linear-progress-exit {
-  opacity: 1;
-  &.linear-progress-exit-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-  }
+  display: none;
 }
