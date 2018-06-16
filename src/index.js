@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { MuiThemeProvider } from 'material-ui/styles';
+import { MuiThemeProvider, getMuiTheme } from 'material-ui/styles';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -20,6 +20,12 @@ import reducers from './reducers';
 import { locale } from '../assets/translations';
 import './global.scss';
 
+const muiTheme = getMuiTheme({
+  ripple: {
+    color: 'rgba(255, 255, 255, 0.5)'
+  }
+})
+
 // const history = createBrowserHistory();
 // const middleware = routerMiddleware(history);
 const store = createStore(reducers, applyMiddleware(thunk))
@@ -27,7 +33,7 @@ store.dispatch(setTranslations(locale()))
 
 ReactDOM.render(
   <Provider store={store}>
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={muiTheme}>
       <I18n translations={{}} initialLang="fr" useReducer={true}>
         <BrowserRouter>
           <Screens />
