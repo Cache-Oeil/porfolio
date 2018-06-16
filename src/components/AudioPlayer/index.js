@@ -55,6 +55,7 @@ class AudioPlayer extends Component {
   }
 
   componentDidMount() {
+    this.audio = document.getElementById('audio')
     this.audio && this.audio.load()
     this.audio.play()
   }
@@ -248,7 +249,7 @@ class AudioPlayer extends Component {
           </li>
           ))}
         </ul>
-        <audio ref={el => this.audio = el} id="audio" style={{display: 'none'}} onEnded={this.handleEnd}>
+        <audio id="audio" style={{display: 'none'}} onEnded={this.handleEnd}>
           <source src={selectedTrack.source} />
         </audio>
       </div>
