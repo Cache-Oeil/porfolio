@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import Progress from './Progress';
 import './style.scss';
 
+const pulseEffect = (event) => {
+  const elementChild = event.currentTarget.getElementsByTagName('div')[0]
+  elementChild.style.animation = "pulse2 0.3s linear"
+  setTimeout(() => elementChild.style.animation = "none", 300)
+}
 class AudioPlayer extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +20,8 @@ class AudioPlayer extends Component {
   }
 
   componentDidMount() {
-    this.audio.play();
+    this.audio && this.audio.play();
+    this.audio.muted = false
   }
 
   updateTime = () => {
@@ -28,6 +34,32 @@ class AudioPlayer extends Component {
   handlePlay = () => {
     this.audio.play();
     this.updateTime()
+  }
+
+  nextTrack = () => {
+    const { tracks } = this.props
+    _.forEach(tracks, (track, index) => {
+      if (track.id === this.state.selectedTrack.id && index < tracks.length - 1) {
+        this.setState({ 
+          selectedTrack: tracks[index+1],
+          currentTime: 0,
+          play: true 
+        })
+      }
+    })
+  }
+
+  prevTrack = () => {
+    const { tracks } = this.props
+    _.forEach(tracks, (track, index) => {
+      if (track.id === this.state.selectedTrack.id && index > 0 ) {
+        this.setState({ 
+          selectedTrack: tracks[index-1],
+          currentTime: 0,
+          play: true 
+        })
+      }
+    })
   }
 
   forward = () => {
@@ -98,10 +130,10 @@ class AudioPlayer extends Component {
         <div className="throbber"></div>                            
         <label className="play" onClick={this.togglePlay}></label>
         <div className="controls">
-          <div className="control prev" onClick={() => console.log('click')}></div>
-          <div className="control rw" onClick={this.backward}></div>
-          <div className="control fw" onClick={this.forward}></div>
-          <div className="control next" onClick={() => console.log('click')}></div>
+          <div className="control prev" onClick={(e) => { this.prevTrack(); pulseEffect(e) }}><div></div></div>
+          <div className="control rw" onClick={(e) => { this.backward(); pulseEffect(e) }}><div></div></div>
+          <div className="control fw" onClick={(e) => { this.forward(); pulseEffect(e) }}><div></div></div>
+          <div className="control next" onClick={(e) => { this.nextTrack(); pulseEffect(e) }}><div></div></div>
         </div>
         <ul className="songlist">
           <li className="song"> 

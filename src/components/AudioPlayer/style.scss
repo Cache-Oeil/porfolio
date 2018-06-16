@@ -164,6 +164,18 @@ $colors: (
       width: 25%;
       background: material-color(grey,
       900);
+      transition: all .3s ease-out;
+      >div {
+        width: 20%;
+        height: 20%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background-color: white;
+        opacity: 0;
+      } 
       &:before {
         font-size: 1rem;
         content: '';
@@ -188,16 +200,25 @@ $colors: (
         border: 10px solid transparent;
       }
       &.prev {
+        cursor: pointer;
+        >div {
+          left: 58% !important;
+        }
         &:before {
           border-right-color: material-color(grey, 400);
         }
       }
       &.next {
+        >div {
+          left: 42% !important;
+        }
+        cursor: pointer;
         &:before {
           border-left-color: material-color(grey, 400);
         }
       }
       &.fw {
+        cursor: pointer;
         &:before {
           border-left-color: material-color(grey, 400);
           margin-left: -7px;
@@ -209,6 +230,7 @@ $colors: (
         }
       }
       &.rw {
+        cursor: pointer;
         &:before {
           content: '';
           border-right-color: material-color(grey, 400);
@@ -430,5 +452,16 @@ $colors: (
     top: 42%;
     left: 84%;
     transform: rotate(90deg);
+  }
+}
+
+@keyframes pulse2 {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: .6;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(5.5);
+    opacity: 0;
   }
 }
