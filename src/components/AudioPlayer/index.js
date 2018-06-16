@@ -55,7 +55,8 @@ class AudioPlayer extends Component {
   }
 
   componentDidMount() {
-    this.audio && this.audio.play();
+    this.audio && this.audio.load()
+    this.audio.play()
   }
 
   updateTime = () => {
