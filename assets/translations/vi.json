@@ -10,6 +10,13 @@
   "introduce.carousel.resume": "Sinh viên năm cuối tại trường INSA Centre Val de Loire, Pháp",
   "introduce.carousel.introduction": "Mình là Bảo, hiện đang là sinh viên năm cuối của Viện Khoa Học Ứng Dụng Quốc Gia tại Val de Loire, Pháp. Mặc dù biết đến lập trình cũng khá lâu, nhưng mãi tới tận cuối năm ngoái, một sự kiện xảy đến cuốn mình vào trong niềm đam mê phát triển Web. Front-end developement là mục tiêu trước mắt mình đang chinh phục để hướng tới một Full-Stack Developer đầy bản lĩnh. Và CiOne chính là nơi đã giúp mình hệ thống lại kiến thức và tạo một cộng đồng hỗ trợ nhiệt tình.",
 
+  "product.web": "Web",
+  "product.web.basic_project": "Đồ án cơ bản",
+  "product.web.final_project": "Đồ án tốt nghiệp",
+  "product.web.internship": "Thực tập",
+  "product.game": "Trò chơi",
+  "product.novel": "Tiểu thuyết",
+  
   "footer.support": "Ủng hộ",
   "footer.support.content": "Hãy cộng tác với tôi nếu bạn thấy hứng thú, sự hài lòng của bạn là động lực của tôi.",
   "footer.send_message": "Gửi Email",

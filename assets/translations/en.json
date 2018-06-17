@@ -10,6 +10,13 @@
   "introduce.carousel.resume": "Final-year student at INSA Centre Val de Loire, France",
   "introduce.carousel.introduction": "My name is Bao, currently a senior student at the National Institute of Applied Sciences in Val de Loire, France. Although it's been known for quite some time, but until the end of last year, an event came to fruition in the Web. Front-end developement is an immediate goal for the full-stacks of developers. CiOne is the place to help you re-organize your knowledge and create a supportive community.",
 
+  "product.web": "Web",
+  "product.web.basic_project": "Basic project",
+  "product.web.final_project": "Final-year project",
+  "product.web.internship": "Intership",
+  "product.game": "Game",
+  "product.novel": "Novel",
+  
   "footer.support": "Support",
   "footer.support.content": "Please cooperate with me if you are interested, your satisfaction is my motivation.",
   "footer.send_message": "Send Message",
