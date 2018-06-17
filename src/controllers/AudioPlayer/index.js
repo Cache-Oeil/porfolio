@@ -26,6 +26,17 @@ const tracks = [
     },
     source: 'https://s3.eu-west-3.amazonaws.com/baochau-music/Cap-Doi-Dep-Nhat-Hac-Ky-Tu.mp3',
     duration: 242
+  },
+  {
+    id: 3,
+    title: 'Last stardust',
+    artist: "Aimer",
+    albumb: {
+      name: null,
+      artwork: 'https://i.ytimg.com/vi/CcVYLHM3NdA/maxresdefault.jpg'
+    },
+    source: 'https://s3.eu-west-3.amazonaws.com/baochau-music/LAST-STARDUST.mp3',
+    duration: 259
   }
 ]
 const mapStateToProps = state => ({
