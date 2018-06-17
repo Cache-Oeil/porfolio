@@ -24,23 +24,23 @@ const Footer = (props, context) => {
             <p className="contact-info">{`${context.t('footer.contact.call')}: ${context.t('footer.contact.telephone')}`}<br/>{context.t('footer.contact.address')}</p>
             <a href="#" className="e-mail">{context.t('footer.contact.email')}</a>
             <div className="social-menu">
-              <a href="#" className="social-icon facebook">
+              <a href="https://www.facebook.com/yagami.shuukoku" target="_blank" className="social-icon facebook">
                 <i className="fa fa-facebook" aria-hidden="true"></i>
                 <i className="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="#" className="social-icon twitter">
+              <a href="#" target="_blank" className="social-icon twitter">
                 <i className="fa fa-twitter" aria-hidden="true"></i>
                 <i className="fa fa-twitter" aria-hidden="true"></i>
               </a>
-              <a href="#" className="social-icon google-plus">
+              <a href="https://plus.google.com/u/0/103319934825509071017" target="_blank" className="social-icon google-plus">
                 <i className="fa fa-google-plus" aria-hidden="true"></i>
                 <i className="fa fa-google-plus" aria-hidden="true"></i>
               </a>
-              <a href="#" className="social-icon linkedin">
+              <a href="https://www.linkedin.com/in/khac-quoc-bao-chau-981844159" target="_blank" className="social-icon linkedin">
                 <i className="fa fa-linkedin" aria-hidden="true"></i>
                 <i className="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-              <a href="#" className="social-icon instagram">
+              <a href="https://www.instagram.com/bao.chow" target="_blank" className="social-icon instagram">
                 <i className="fa fa-instagram" aria-hidden="true"></i>
                 <i className="fa fa-instagram" aria-hidden="true"></i>
               </a>

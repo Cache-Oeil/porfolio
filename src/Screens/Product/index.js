@@ -1,93 +1,75 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import ProductDetail from './Item';
+import PropTypes from 'prop-types';
+import {Tabs, Tab} from 'material-ui/Tabs';
+import { lightBlueA400, grey800 } from 'material-ui/styles/colors';
+import Bar from '../../components/Bar';
+import Web from '../../components/Product/Web';
 import './style.scss';
-import ProductItem from './Item';
 
+const tabSelectedStyle = {color: lightBlueA400,  textTransform:"capitalize", fontSize:20, fontWeight: "bold"}
+
+const tabUnselectedStyle = { color: grey800,  textTransform:"capitalize", fontSize:20}
 class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {  
-      hexagons: null
+      slideIndex: 0
     };
   }
 
-  componentWillMount() {
-    let hexagons = computeNumberOfHexagon(this.props.products.length);
-    this.setState({ hexagons });
+  handleChange = (value) => {
+    this.setState({ slideIndex: value })
+  }
+  
+  handleActive = (tab) => {
+    this.props.history.push("/product")
   }
 
   render() {
-    const { hexagons } = this.state;
     return (
       <div className="product">
         <div className="product-container">
-          <Switch>
-            <Route path={this.props.match.url + '/:project'} component={ProductItem}/>
-            <Route>
-              <div className="hex-wrapper">
-                { Array.from({length: 3}, v => 0).map((v, i) => {
-                  if (i === 0) {
-                    return (
-                      <div key="top" className="hex-row top">
-                        { this.props.products.filter((product, index) => index < (hexagons-1)/3).map(product => (
-                          <Link key={product.id} className="hex" data-name={product.name} to={`/product/${product.name}`}>
-                            <div className="hex-label">
-                                <img src={product.image} alt={product.image_alt} />
-                            </div>
-                            <div className="hex-1"></div>
-                            <div className="hex-2"></div>
-                          </Link>
-                        ))}
-                      </div>
-                    )
-                  }
-                  if (i === 1) {
-                    return (
-                      <div key="middle" className="hex-row middle">
-                        { this.props.products.filter((product, index) => index >= (hexagons-1)/3 && index <= 2*(hexagons-1)/3).map(product => (
-                          <Link key={product.id} className="hex" data-name={product.name} to={`/product/${product.name}`}>
-                            <div className="hex-label">
-                                <img src={product.image} alt={product.image_alt} />
-                            </div>
-                            <div className="hex-1"></div>
-                            <div className="hex-2"></div>
-                          </Link>
-                        ))}
-                      </div>
-                    )
-                  }
-                  if (i === 2) {
-                    return (
-                      <div key="bottom" className="hex-row bottom">
-                        { this.props.products.filter((product, index) => index > 2*(hexagons-1)/3).map(product => (
-                          <Link key={product.id} className="hex" data-name={product.name} to={`/product/${product.name}`}>
-                            <div className="hex-label">
-                                <img src={product.image} alt={product.image_alt} />
-                            </div>
-                            <div className="hex-1"></div>
-                            <div className="hex-2"></div>
-                          </Link>
-                        ))}
-                      </div> 
-                    )
-                  }
-                })}   
-              </div>
-            </Route>
-          </Switch>
+        <Bar title={this.context.t('header.product')} topFaceStyle={{ backgroundColor: '#dcdbdc', color: '#9f8764'}} frontFaceStyle={{ backgroundColor: '#9f8764', color: '#dcdbdc'}}/>
+        <Tabs
+          onChange={this.handleChange}
+          value={this.state.slideIndex}
+          className="tabs"
+          tabTemplateStyle={{color: grey800}}
+          tabItemContainerStyle={{background: 'transparent'}}
+          inkBarStyle={{background: lightBlueA400, height: 3}}
+        >
+          <Tab label={this.context.t('product.web')} value={0} onActive={this.handleActive}  style={this.state.slideIndex === 0 ? tabSelectedStyle : tabUnselectedStyle}>
+            <div className="tab-content">
+              <Web
+                products={!_.isEmpty(this.props.products) && this.props.products}
+              />
+            </div>
+          </Tab>
+          <Tab label={this.context.t('product.game')} value={1} onActive={this.handleActive} style={this.state.slideIndex === 1 ? tabSelectedStyle : tabUnselectedStyle}/>
+          <Tab label={this.context.t('product.novel')} value={2} onActive={this.handleActive} style={this.state.slideIndex === 2 ? tabSelectedStyle : tabUnselectedStyle} />
+        </Tabs>
+        {/* <SwipeableViews
+          index={this.state.slideIndex}
+          onChangeIndex={this.handleChange}
+          style={{maxWidth: 1130, margin: "0 auto"}}
+        >
+          
+          <div className="tab-content">
+            
+          </div>
+          <div className="tab-content">
+            
+          </div>
+        </SwipeableViews> */}
         </div>
       </div>
     );
   }
 }
 
-
-function computeNumberOfHexagon(n) {
-  if ((n - 1) % 3 === 0) {
-    return n;
-  }
-  computeNumberOfHexagon(n+1);
+Product.contextTypes = {
+  t: PropTypes.func
 }
 
 export default Product;

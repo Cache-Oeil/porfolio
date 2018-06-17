@@ -22,7 +22,7 @@ figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, su
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #000;
 }
 
 ul {
@@ -31,6 +31,12 @@ ul {
 }
 
 ul::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.clear-fix::after {
     content: "";
     display: table;
     clear: both;

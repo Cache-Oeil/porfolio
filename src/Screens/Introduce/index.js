@@ -34,13 +34,17 @@ class Introduce extends Component {
     console.log(nextProps.location)
   }
 
+  navigate = (e) => {
+    window.open(e.currentTarget.getAttribute("href"))
+  }
+
   render() {
     return (
       <div className="introduce">
         <div className="introduce-container">
           <Bar title={this.context.t('header.introduce')} topFaceStyle={{ backgroundColor: '#67605f', color: '#dedcdb'}} frontFaceStyle={{ backgroundColor: '#dedcdb', color:'#67605f'}}/>
           <Carousel
-            autoplay
+            autoplay={false}
             open
             style={carouselRootStyle}
             contentStyle={contentContainerStyle}
@@ -61,11 +65,11 @@ class Introduce extends Component {
               <p>{this.context.t('introduce.carousel.resume')}</p>
               <div className="social-media">
                   <ul>
-                      <li><a href="https://www.facebook.com/yagami.shuukoku"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i className="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i className="fa fa-instagram" aria-hidden="true"></i></a></li>
+                      <li><a href="https://www.facebook.com/yagami.shuukoku" onClick={this.navigate}><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
+                      <li><a href="#" onClick={this.navigate}><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
+                      <li><a href="https://plus.google.com/u/0/103319934825509071017" onClick={this.navigate}><i className="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                      <li><a href="https://www.linkedin.com/in/khac-quoc-bao-chau-981844159" onClick={this.navigate}><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                      <li><a href="https://www.instagram.com/bao.chow" onClick={this.navigate}><i className="fa fa-instagram" aria-hidden="true"></i></a></li>
                   </ul>
               </div>
             </Slide>
