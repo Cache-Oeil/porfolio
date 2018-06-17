@@ -56,8 +56,6 @@ class AudioPlayer extends Component {
 
   componentDidMount() {
     this.audio = document.getElementById('audio')
-    this.audio.load()
-    this.audio.play()
   }
 
   updateTime = () => {
@@ -229,10 +227,6 @@ class AudioPlayer extends Component {
               <SkipNext color={'#BDBDBD'} />
             </IconButton>
           </div>
-          {/* <div className="control prev" onClick={(e) => { this.prevTrack(); pulseEffect(e) }}><div></div></div>
-          <div className="control rw" onClick={(e) => { this.backward(); pulseEffect(e) }}><div></div></div>
-          <div className="control fw" onClick={(e) => { this.forward(); pulseEffect(e) }}><div></div></div>
-          <div className="control next" onClick={(e) => { this.nextTrack(); pulseEffect(e) }}><div></div></div> */}
         </div>
         <ul className="songlist">
           <li className="song"> 
@@ -249,7 +243,7 @@ class AudioPlayer extends Component {
           </li>
           ))}
         </ul>
-        <audio id="audio" style={{display: 'none'}} onEnded={this.handleEnd}>
+        <audio id="audio" style={{display: 'none'}} onEnded={this.handleEnd} autoPlay>
           <source src={selectedTrack.source} />
         </audio>
       </div>
