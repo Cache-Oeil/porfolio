@@ -56,6 +56,8 @@ class AudioPlayer extends Component {
 
   componentDidMount() {
     this.audio = document.getElementById('audio')
+    console.log(this.audio)
+    this.audio.autoplay = true
   }
 
   updateTime = () => {
@@ -243,7 +245,7 @@ class AudioPlayer extends Component {
           </li>
           ))}
         </ul>
-        <audio id="audio" style={{visibility: 'hidden'}} onEnded={this.handleEnd} autoPlay>
+        <audio id="audio" style={{visibility: 'hidden'}} onEnded={this.handleEnd} >
           <source src={selectedTrack.source} />
         </audio>
       </div>
