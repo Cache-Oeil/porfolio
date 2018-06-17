@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@material-ui/icons": "^1.0.0-beta.43",
+    "classnames": "^2.2.6",
     "immutable": "^3.8.2",
     "jquery": "^3.3.1",
     "lodash": "^4.17.10",
