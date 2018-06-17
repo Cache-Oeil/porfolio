@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AudioPlayer from '../../components/AudioPlayer';
-import musicSrc from '../../../assets/music/mash_up.mp3';
 
 // temporary data
 const tracks = [

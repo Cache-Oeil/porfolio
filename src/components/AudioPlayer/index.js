@@ -243,7 +243,7 @@ class AudioPlayer extends Component {
           </li>
           ))}
         </ul>
-        <audio id="audio" style={{display: 'none'}} onEnded={this.handleEnd} autoPlay>
+        <audio id="audio" style={{visibility: 'hidden'}} onEnded={this.handleEnd} autoPlay>
           <source src={selectedTrack.source} />
         </audio>
       </div>
