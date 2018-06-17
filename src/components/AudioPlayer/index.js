@@ -56,7 +56,7 @@ class AudioPlayer extends Component {
 
   componentDidMount() {
     this.audio = document.getElementById('audio')
-    this.audio && this.audio.load()
+    this.audio.load()
     this.audio.play()
   }
 
