@@ -56,8 +56,17 @@ class AudioPlayer extends Component {
 
   componentDidMount() {
     this.audio = document.getElementById('audio')
-    console.log(this.audio)
-    this.audio.autoplay = true
+    let promise = this.audio.play()
+    if (promise !== undefined) {
+      promise
+        .then(res => {
+        this.audio.autoplay = true
+        })
+        .catch(err => {
+        this.audio.autoplay = false
+        this.setState({ play: false })
+        })
+    }
   }
 
   updateTime = () => {
