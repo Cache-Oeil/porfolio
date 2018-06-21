@@ -1,10 +1,23 @@
 .skill {
   background-color: #d0d0d0;
-  .skill-chart {
-    text-align: center;
-    h3 {
+  .skill-container {
+    position: relative;
+    .draggable-list {
       position: relative;
-      top: 56px;
+      height: 500px;
+      .draggable-item {
+        position: absolute;
+        width: 30%;
+        height: auto;
+      }
+    }
+    .skill-chart {
+      transition: all 1s 0.6s;
+      text-align: center;
+      h3 {
+        position: relative;
+        top: 56px;
+      }
     }
   }
 }
